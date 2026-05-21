@@ -1,0 +1,77 @@
+# =============================================================================
+# Règles de routage
+# =============================================================================
+# Ce fichier définit la logique de catégorisation des messages entrants
+# et leur acheminement vers le canal de notification approprié.
+#
+# Structure d'une règle :
+#   - name        : identifiant unique de la règle (snake_case)
+#   - description : explication courte de la catégorie
+#   - keywords    : liste de mots-clés déclencheurs (insensibles à la casse)
+#   - target      : groupe WhatsApp cible (doit correspondre à une clé
+#                   définie dans .env : urgent, maintenance, general)
+#   - priority    : ordre d'évaluation (1 = évalué en premier)
+# =============================================================================
+
+rules:
+    - name: urgent_alert
+      description: "Alertes critiques nécessitant une intervention immédiate"
+      keywords:
+          - "urgent"
+          - "critique"
+          - "arrêt"
+          - "panne"
+          - "alarme"
+      target: urgent
+      priority: 1
+
+    - name: maintenance_request
+      description: "Demandes de maintenance préventive ou corrective"
+      keywords:
+          - "maintenance"
+          - "révision"
+          - "inspection"
+          - "vérification"
+          - "entretien"
+      target: maintenance
+      priority: 2
+
+    - name: general_information
+      description: "Informations générales sans caractère urgent"
+      keywords:
+          - "rapport"
+          - "compte-rendu"
+          - "information"
+          - "mise à jour"
+      target: general
+      priority: 3
+
+# -----------------------------------------------------------------------------
+# Règle de repli (fallback)
+# -----------------------------------------------------------------------------
+# Si aucune règle ci-dessus ne correspond au message entrant,
+# le système utilise cette cible par défaut.
+
+fallback_target: general
+
+# -----------------------------------------------------------------------------
+# Filtres de mots-clés (optionnel)
+# -----------------------------------------------------------------------------
+# Ce bloc est optionnel. S'il est absent, tous les emails sont traités.
+#
+# include : liste de mots-clés — au moins un doit être présent dans
+#           l'objet ou le corps pour que le message soit traité.
+#           Si cette liste est vide ou absente, aucun filtre d'inclusion
+#           n'est appliqué.
+#
+# exclude : liste de mots-clés — si l'un d'eux est trouvé dans l'objet
+#           ou le corps, l'email est ignoré quelle que soit sa catégorie.
+#
+# Exemple d'activation :
+# filters:
+#   include:
+#     - pompe
+#     - alarme
+#   exclude:
+#     - test
+#     - spam

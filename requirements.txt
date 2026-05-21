@@ -1,0 +1,24 @@
+# =============================================================================
+# Dépendances — ocp-ml-monitoring-system
+# =============================================================================
+# Pour installer dans un environnement virtuel activé :
+#   pip install -r requirements.txt
+# =============================================================================
+
+# Chargement des variables d'environnement depuis .env
+python-dotenv==1.0.1
+
+# Validation des données
+pydantic==2.7.1
+
+# Fichiers de configuration YAML
+pyyaml==6.0.1
+
+# Client HTTP pour Green API (WhatsApp)
+requests==2.33.1
+
+# Affichage terminal enrichi
+rich==13.7.1
+
+# Planification du polling email
+schedule==1.2.1

@@ -1,0 +1,36 @@
+# Environnement Python
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Configuration locale — ne jamais versionner
+.env
+
+# Logs générés à l'exécution
+logs/*.log
+logs/*.json
+
+# Artefacts de build et distribution
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Outils d'analyse statique
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# Claude Code (recréé automatiquement)
+.claude/
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
