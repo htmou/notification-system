@@ -15,7 +15,7 @@ l'installation.
   **mot de passe d'application** généré (différent du mot de passe habituel —
   voir section Configuration)
 - Un compte Green API avec une instance WhatsApp liée via QR code —
-  créez un compte sur [green-api.com](https://green-api.com) si vous n'en avez
+  créez un compte sur [green-api.com](https://green-api.com/en) si vous n'en avez
   pas encore un
 - Les groupes WhatsApp destinataires avec le téléphone lié à Green API ajouté
   comme participant
@@ -31,7 +31,7 @@ d'administrateur).
 
 **2. Placez-vous dans le dossier du programme :**
 ```powershell
-cd "C:\chemin\vers\ocp-ml-monitoring-system"
+cd "C:\chemin\vers\notification-system"
 ```
 Remplacez le chemin par l'emplacement réel du dossier sur votre machine.
 
